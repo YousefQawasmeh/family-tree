@@ -7,5 +7,7 @@ if (!connectionString) throw new Error("set DATABASE_URL");
 
 module.exports = new Pool({
   connectionString,
-  ssl: !connectionString.includes("localhost")
+  ssl: {
+    rejectUnauthorized: false,
+  }
 });
